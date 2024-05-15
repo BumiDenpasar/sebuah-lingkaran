@@ -10,7 +10,7 @@ export default function Chats({ serverChats, group_id }: any) {
     const channel = supabase
       .channel('chats')
       .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'chats', filter: `group_id=eq.${group_id}` }, (payload) => {
-        setChats((prevChats) => [...prevChats, payload.new]);
+        setChats((prevChats:any) => [...prevChats, payload.new]);
       })
       .subscribe();
 
@@ -49,7 +49,7 @@ export default function Chats({ serverChats, group_id }: any) {
 
   return (
     <div className="space-y-3 w-full mt-24 mb-20">
-      {chats.map((chat) => (
+      {chats.map((chat:any) => (
         <Chat key={chat.id} time={getHourMinutes(chat.created_at)} chat={chat.chat} />
       ))}
     </div>

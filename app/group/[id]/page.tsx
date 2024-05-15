@@ -25,14 +25,6 @@ export default async function page({ params }: any) {
   if (error) {
     console.error(error);
     return <div>Error loading chats</div>;
-  }else {
-    if (chats.length > 0) {
-      const firstChat = chats[0]; // Assuming you only need data from the first chat entry
-      const groupName = firstChat.group.name;
-      console.log('Group Name:', groupName);
-    } else {
-      console.log('No chats found.');
-    }
   }
 
   
