@@ -11,12 +11,12 @@ export default function Input() {
   const router = useRouter();
 
   async function submitData(formData: FormData) {
-    const { data, error } = await supabase.from("group").insert(formData);
+    const { data, error } = await supabase.from("group").insert(formData).select('id');
     if (error) {
       console.error("Error inserting data:", error);
     } else {
-      console.log("Data inserted successfully:", data);
-      const url = "group/" + formData.name;
+      console.log("Data inserted successfully:", data[0].id);
+      const url = "group/" + data[0].id;
       router.push(url);
     }
   }
@@ -47,7 +47,7 @@ export default function Input() {
         <input
           type="text"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-neutral-500 focus:border-neutral-500 block w-full ps-5 p-2.5  dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
-          placeholder="Buat nama sirkel..."
+          placeholder="Buat password sirkelmu..."
           required
           id="name"
           name="name"

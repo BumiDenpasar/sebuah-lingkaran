@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-main dark:bg-black bg-white text-black dark:text-white transition-all duration-500">{children}</body>
+      <body className="flex justify-center font-main dark:bg-black bg-white text-black dark:text-white transition-all duration-500">{children}</body>
     </html>
   );
 }
