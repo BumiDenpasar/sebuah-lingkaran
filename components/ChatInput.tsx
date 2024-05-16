@@ -2,6 +2,7 @@
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { GrFormNextLink } from "react-icons/gr";
 
 interface FormData {
   group_id:number;
@@ -37,13 +38,13 @@ export default function ChatInput(id:any) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-screen items-center justify-center fixed bottom-[-1px] px-8 py-7 left-0 bg-neutral-200 dark:bg-neutral-900 rounded-t-3xl"
+      className="flex w-screen items-center justify-center fixed bottom-[-1px] px-8 pb-7 pt-10 left-0  bg-gradient-to-t from-purple-100 via-purple-100 to-purple-100/0  dark:from-black dark:via-black dark:to-black/0"
     >
       <div className="max-w-xl w-full flex items-center justify-center">
         <div className="relative w-full">
           <input
             type="text"
-            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-3xl focus:ring-neutral-500 focus:border-neutral-500 block w-full ps-5 p-2.5  dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full focus:ring-neutral-500 focus:border-neutral-500 block w-full ps-5 p-2.5 py-4 dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
             placeholder="Ssssttttt..."
             required
             id="chat"
@@ -54,9 +55,11 @@ export default function ChatInput(id:any) {
         </div>
         <button
           type="submit"
-          className="ms-2 text-sm font-medium text-white bg-neutral-700 rounded-full w-10 h-10 aspect-square border border-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800"
+          className="ms-2 flex items-center justify-center font-medium text-white bg-purple-700 rounded-full w-12 h-12 aspect-square dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800"
         >
-          <p className="font-mono font-semibold text-lg">{">"}</p>
+          <div className="scale-150">
+            <GrFormNextLink />
+          </div>
         </button>
       </div>
     </form>

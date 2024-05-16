@@ -48,7 +48,7 @@ export default function Chats({ serverChats, group_id }: any) {
   }
 
   return (
-    <div className="space-y-3 w-full mt-24 mb-20">
+    <div className="space-y-3 w-full mt-20 mb-20">
       {chats.map((chat:any) => (
         <Chat key={chat.id} time={getHourMinutes(chat.created_at)} chat={chat.chat} />
       ))}

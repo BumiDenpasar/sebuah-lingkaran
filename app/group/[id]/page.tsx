@@ -1,15 +1,16 @@
 import ChatInput from "@/components/ChatInput";
 import Chats from "@/components/Chats";
+import GroupId from "@/components/GroupId";
 import Navbar from "@/components/Navbar";
+import { checkGroupID } from "@/lib/groupUtils";
 import { supabase } from "@/lib/supabase";
 
 export default async function page({ params }: any) {
   const { id } = params;
-  if (!id) {
-    return <div>Error: Group ID is required</div>;
-  }
 
+  const isGroupValid = await checkGroupID(id);
 
+  
   const { data: chats, error } = await supabase
     .from('chats')
     .select(`
@@ -30,7 +31,10 @@ export default async function page({ params }: any) {
   
   return (
     <div className="px-8 max-w-xl w-full py-7">
-      <Navbar name='lingkaran' />
+      <GroupId valid={isGroupValid} />
+
+      <Navbar name='Lingkaran' group_id={id}/>
+      
       <Chats serverChats={chats} group_id={id} />
       <ChatInput id={id} />
     </div>

@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
+import { MdDarkMode } from "react-icons/md"
 
 export const ThemeToggle = () => {
     const [darkMode, setDarkMode] = useState(true)
@@ -20,9 +21,9 @@ export const ThemeToggle = () => {
     }, [darkMode])
 
   return (
-    <div className="text-black dark:text-white absolute bottom-10 w-screen text-center text-light transition-all duration-500"
-    onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? "Gelap" : "Terang"}
-    </div>
+     <button onClick={() => setDarkMode(!darkMode)} className='px-5 py-2 w-full flex items-center space-x-2 border-r-2 border-b-2 hover:border-r-4 hover:border-b-4 transition-all border-slate-800 rounded-xl bg-slate-600 text-white font-semibold'>
+    <MdDarkMode />
+    <p>{darkMode ? "Dark" : "Light"} Mode</p>
+    </button>
   )
 }

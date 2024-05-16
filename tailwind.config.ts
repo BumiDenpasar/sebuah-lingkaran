@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        main: ['Just-Me-Again-Down-Here', 'cursive'],
+        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
