@@ -1,29 +1,31 @@
 "use client";
 import { supabase } from "@/lib/supabase";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { GrFormNextLink } from "react-icons/gr";
 
 interface FormData {
-  group_id:number;
+  group_id: number;
   chat: string;
 }
 
-export default function ChatInput(id:any) {
+export default function ChatInput(id: any) {
+  const [formData, setFormData] = useState<FormData>({
+    group_id: id.id,
+    chat: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function submitData(formData: FormData) {
+    setIsSubmitting(true);
     const { data, error } = await supabase.from("chats").insert(formData);
+    setIsSubmitting(false);
     if (error) {
       console.error("Error inserting data:", error);
     } else {
       console.log("Data inserted successfully:", data);
     }
   }
-
-  const [formData, setFormData] = useState<FormData>({
-    group_id: id.id,
-    chat: "",
-  });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -32,13 +34,13 @@ export default function ChatInput(id:any) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await submitData(formData);
-    setFormData({group_id: id.id,  chat: "" });
+    setFormData({ group_id: id.id, chat: "" });
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-screen items-center justify-center fixed bottom-[-1px] px-8 pb-7 pt-10 left-0  bg-gradient-to-t from-purple-100 via-purple-100 to-purple-100/0  dark:from-black dark:via-black dark:to-black/0"
+      className="flex w-screen items-center justify-center fixed bottom-[-1px] px-8 pb-7 pt-10 left-0 bg-gradient-to-t from-purple-100 via-purple-100 to-purple-100/0 dark:from-black dark:via-black dark:to-black/0"
     >
       <div className="max-w-xl w-full flex items-center justify-center">
         <div className="relative w-full">
@@ -55,7 +57,10 @@ export default function ChatInput(id:any) {
         </div>
         <button
           type="submit"
-          className="ms-2 flex items-center justify-center font-medium text-white bg-purple-700 rounded-full w-12 h-12 aspect-square"
+          disabled={isSubmitting}
+          className={`ms-2 flex items-center justify-center font-medium text-white rounded-full w-12 h-12 aspect-square ${
+            isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-purple-700'
+          }`}
         >
           <div className="scale-150">
             <GrFormNextLink />

@@ -8,7 +8,6 @@ import { BiArrowBack } from 'react-icons/bi'
 import Link from 'next/link'
 import CopyLinkButton from './CopyLinkButton'
 import DeleteButton from './DeleteButton'
-import Transition from './Transition'
 
 export default function Navbar(props: any) {
   const [isOpen, setOpen] = useState(false)
@@ -17,7 +16,7 @@ export default function Navbar(props: any) {
     <div className='flex items-center justify-center fixed top-0 left-0 w-screen'>
       <div className='max-w-xl w-full bg-purple-500 text-white rounded-b-3xl'>
         <div className='flex w-full justify-between items-center px-8 py-5'>
-          <Link href='/' className='scale-125 ml-3'>
+          <Link href='/' onClick={() => {localStorage.removeItem('isAdmin')}} className='scale-125 ml-3'>
             <BiArrowBack />
           </Link>
 
@@ -53,7 +52,9 @@ export default function Navbar(props: any) {
             <div className='space-y-2 w-full px-7'>
               <CopyLinkButton />
               <ThemeToggle />
-              <DeleteButton id={props.group_id} />
+              {localStorage.getItem('isAdmin') ? 
+                <DeleteButton id={props.group_id} /> : null
+              }
             </div>
           </motion.div>
         </motion.div>

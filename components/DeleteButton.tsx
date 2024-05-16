@@ -23,6 +23,7 @@ export default function DeleteButton(props: any) {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         await submitData();
+        localStorage.removeItem('isAdmin');
     };
 
     return (

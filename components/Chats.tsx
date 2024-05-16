@@ -2,6 +2,8 @@
 import { supabase } from "@/lib/supabase";
 import { useEffect, useState } from "react";
 import Chat from './Chat'
+import { useRef } from 'react';
+
 
 export default function Chats({ serverChats, group_id }: any) {
   const [chats, setChats] = useState(serverChats ?? []);
@@ -47,11 +49,22 @@ export default function Chats({ serverChats, group_id }: any) {
     return formattedTime;
   }
 
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({behavior: "smooth"})
+  }
+
+  // Scroll to bottom whenever the chats array is updated
+  useEffect(() => {
+    scrollToBottom();
+  }, [chats]);
+
   return (
-    <div className="space-y-3 w-full mt-20 mb-20">
+    <div className="space-y-3 w-full mt-20 mb-16">
       {chats.map((chat:any) => (
         <Chat key={chat.id} time={getHourMinutes(chat.created_at)} chat={chat.chat} />
       ))}
+      <div className="h-1" ref={messagesEndRef} />
     </div>
   )
 }

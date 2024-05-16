@@ -34,6 +34,7 @@ export default function Input() {
     event.preventDefault();
     await submitData(formData);
     setFormData({ name: "" });
+    localStorage.setItem('isAdmin', JSON.stringify(true));
   };
 
   return (

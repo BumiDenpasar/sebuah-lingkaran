@@ -5,14 +5,16 @@ import Watermark from "@/components/Watermark";
 
 export default function page() {
   return (
-    <Transition>
-      {
-        <div className="w-screen h-screen flex flex-col items-center justify-center">
-            <LogoLarge />
-            <Join />
-            <Watermark />
-        </div>
-      }
-    </Transition>
+    <>
+      <Transition>
+        {
+          <div className="w-screen h-screen flex flex-col items-center justify-center">
+              <LogoLarge />
+              <Join />
+          </div>
+        }
+      </Transition>
+      <Watermark />
+    </>
   )
 }
