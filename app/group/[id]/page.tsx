@@ -30,7 +30,7 @@ export default async function page({ params }: any) {
 
   
   return (
-    <div className="px-8 max-w-xl w-full py-7">
+    <div className="px-8 max-w-xl w-screen py-7">
       <GroupId valid={isGroupValid} />
 
       <Navbar name='Lingkaran' group_id={id}/>

@@ -27,7 +27,7 @@ export default function DeleteButton(props: any) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <button type="submit" className='px-5 py-2 w-full flex items-center space-x-2 border-r-2 border-b-2 hover:border-r-4 hover:border-b-4 transition-all border-red-600 rounded-xl bg-red-400 text-white font-semibold'>
+            <button type="submit" className='px-5 py-2 w-full flex items-center space-x-2 border-r-2 border-b-2 hover:border-r-4 hover:border-b-4  border-red-600 rounded-xl bg-red-400 text-white font-semibold'>
                 <RiDeleteBin2Fill />
                 <p>Hapus Sirkel</p>
             </button>

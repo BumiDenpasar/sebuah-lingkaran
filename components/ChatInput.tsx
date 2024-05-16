@@ -55,7 +55,7 @@ export default function ChatInput(id:any) {
         </div>
         <button
           type="submit"
-          className="ms-2 flex items-center justify-center font-medium text-white bg-purple-700 rounded-full w-12 h-12 aspect-square dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800"
+          className="ms-2 flex items-center justify-center font-medium text-white bg-purple-700 rounded-full w-12 h-12 aspect-square"
         >
           <div className="scale-150">
             <GrFormNextLink />

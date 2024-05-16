@@ -2,6 +2,7 @@
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { GrFormNextLink } from "react-icons/gr";
 
 interface FormData {
   name: string;
@@ -38,7 +39,7 @@ export default function Input() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center max-w-sm mx-auto"
+      className="flex items-center max-w-sm mx-auto mb-16"
     >
       <label htmlFor="name" className="sr-only">
         Search
@@ -46,7 +47,7 @@ export default function Input() {
       <div className="relative w-full">
         <input
           type="text"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-neutral-500 focus:border-neutral-500 block w-full ps-5 p-2.5  dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
+          className="bg-gray-50 border placeholder-purple-200 text-purple-500 font-semibold border-gray-300 rounded-full focus:ring-neutral-500 focus:border-neutral-500 block w-full ps-5 p-2.5 py-4 dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
           placeholder="Buat password sirkelmu..."
           required
           id="name"
@@ -57,9 +58,11 @@ export default function Input() {
       </div>
       <button
         type="submit"
-        className="p-2 ms-2 text-sm font-medium text-white bg-neutral-700 rounded-full w-auto h-full aspect-square border border-neutral-700 hover:bg-neutral-800 focus:ring-4 focus:outline-none focus:ring-neutral-300 dark:bg-neutral-600 dark:hover:bg-neutral-700 dark:focus:ring-neutral-800"
+        className="ms-2 flex items-center justify-center font-medium text-white bg-purple-700 rounded-full w-12 h-12 aspect-square"
       >
-        <p className="font-mono font-semibold text-lg">{">"}</p>
+        <div className="scale-125">
+          <GrFormNextLink />
+        </div>
       </button>
     </form>
   );

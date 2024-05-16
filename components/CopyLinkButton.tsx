@@ -19,7 +19,7 @@ const CopyLinkButton = () => {
     <>
       <button
         onClick={handleCopy}
-        className='px-5 py-2 flex items-center space-x-2 border-r-2 border-b-2 hover:border-r-4 hover:border-b-4 w-full transition-all border-purple-600 rounded-xl bg-purple-400 text-white font-semibold'
+        className='px-5 py-2 flex items-center space-x-2 border-r-2 border-b-2 hover:border-r-4 hover:border-b-4 w-full  border-purple-600 rounded-xl bg-purple-400 text-white font-semibold'
       >
         <IoMdCopy />
         <p>Copy Link</p>
