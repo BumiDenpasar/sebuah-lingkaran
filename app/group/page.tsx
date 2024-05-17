@@ -1,17 +1,11 @@
-'use client'
 import Input from "@/components/Input";
 import LogoLarge from "@/components/LogoLarge";
 import Transition from "@/components/Transition";
 import Watermark from "@/components/Watermark";
-import { useEffect } from "react";
+import { ThemeConfig } from "@/lib/ThemeConfig";
 
 export default function page() {
-  useEffect(() => {
-    const savedTheme = sessionStorage.getItem('theme')
-    if (savedTheme === "dark") {
-      document.documentElement.classList.add('dark')
-    }
-  }, [])
+  ThemeConfig()
 
   return (
     <>

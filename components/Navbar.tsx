@@ -14,9 +14,6 @@ export default function Navbar(props: any) {
   const [isOpen, setOpen] = useState(false);
   const [showTutorial, setShowTutorial] = useState(false);
   const [showTutorial2, setShowTutorial2] = useState(false);
-  useEffect(() => {
-    
-}, [])
 
   useEffect(() => {
     setTimeout(() => {

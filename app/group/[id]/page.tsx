@@ -2,7 +2,6 @@ import ChatInput from "@/components/ChatInput";
 import Chats from "@/components/Chats";
 import GroupId from "@/components/GroupId";
 import Navbar from "@/components/Navbar";
-import Tutorial from "@/components/Tutorial";
 import { checkGroupID } from "@/lib/groupUtils";
 import { supabase } from "@/lib/supabase";
 
@@ -35,7 +34,6 @@ export default async function page({ params }: any) {
       <GroupId valid={isGroupValid} />
 
       <Navbar name='Sebuah Lingkaran' group_id={id}/>
-      <Tutorial />
       
       <Chats serverChats={chats} group_id={id} />
       <ChatInput id={id} />
