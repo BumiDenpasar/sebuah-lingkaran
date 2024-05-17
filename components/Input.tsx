@@ -10,9 +10,15 @@ interface FormData {
 
 export default function Input() {
   const router = useRouter();
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+  });
 
   async function submitData(formData: FormData) {
-    const { data, error } = await supabase.from("group").insert(formData).select('id');
+    const { data, error } = await supabase
+      .from("group")
+      .insert(formData)
+      .select("id");
     if (error) {
       console.error("Error inserting data:", error);
     } else {
@@ -22,10 +28,6 @@ export default function Input() {
     }
   }
 
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-  });
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -34,7 +36,7 @@ export default function Input() {
     event.preventDefault();
     await submitData(formData);
     setFormData({ name: "" });
-    localStorage.setItem('isAdmin', JSON.stringify(true));
+    localStorage.setItem("isAdmin", JSON.stringify(true));
   };
 
   return (

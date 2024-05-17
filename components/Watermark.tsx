@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Watermark() {
   return (
     <div className='w-screen absolute text-center bottom-10'>

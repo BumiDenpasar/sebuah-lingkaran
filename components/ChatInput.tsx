@@ -9,13 +9,16 @@ interface FormData {
 }
 
 export default function ChatInput(id: any) {
+  // form data
   const [formData, setFormData] = useState<FormData>({
     group_id: id.id,
     chat: "",
   });
 
+  // state mengirim chat
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // proses masukin datanya ke supabase
   async function submitData(formData: FormData) {
     setIsSubmitting(true);
     const { data, error } = await supabase.from("chats").insert(formData);
@@ -59,7 +62,7 @@ export default function ChatInput(id: any) {
           type="submit"
           disabled={isSubmitting}
           className={`ms-2 flex items-center justify-center font-medium text-white rounded-full w-12 h-12 aspect-square ${
-            isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-purple-700'
+            isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-purple-700"
           }`}
         >
           <div className="scale-150">

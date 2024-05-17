@@ -1,20 +1,21 @@
-'use client'
+"use client";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { GrFormNextLink } from "react-icons/gr";
+import Button from "./Button";
 
 export default function Join() {
   const router = useRouter();
   const [inputValue, setInputValue] = useState("");
 
-  const handleChange = (e:any) => {
+  const handleChange = (e: any) => {
     setInputValue(e.target.value);
   };
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    const url = '/group/'+inputValue
+    const url = "/group/" + inputValue;
     router.push(url);
   };
 

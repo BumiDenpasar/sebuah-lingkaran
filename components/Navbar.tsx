@@ -9,12 +9,17 @@ import Link from "next/link";
 import CopyLinkButton from "./CopyLinkButton";
 import DeleteButton from "./DeleteButton";
 import Tutorial from "./Tutorial";
+import { setTheme } from "@/app/page";
 
 export default function Navbar(props: any) {
+  setTheme();
+
+  // State modal dan tutorial
   const [isOpen, setOpen] = useState(false);
   const [showTutorial, setShowTutorial] = useState(false);
   const [showTutorial2, setShowTutorial2] = useState(false);
 
+  // Manajemen statenya si tutorial
   useEffect(() => {
     setTimeout(() => {
       setShowTutorial(true);
