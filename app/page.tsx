@@ -1,11 +1,17 @@
+'use client'
 import LogoLarge from "@/components/LogoLarge";
 import Transition from "@/components/Transition";
 import Watermark from "@/components/Watermark";
-import { ThemeConfig } from "@/lib/ThemeConfig";
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
-  ThemeConfig()
+  useEffect(() => {
+    const savedTheme = sessionStorage.getItem('theme')
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add('dark')
+    }
+  }, [])
 
   return (
     <>
