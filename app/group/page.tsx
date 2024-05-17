@@ -3,10 +3,10 @@ import Input from "@/components/Input";
 import LogoLarge from "@/components/LogoLarge";
 import Transition from "@/components/Transition";
 import Watermark from "@/components/Watermark";
-import { setTheme } from "../page";
+import { SetTheme } from "../page";
 
 export default function Page() {
-  setTheme();
+  SetTheme();
 
   return (
     <>

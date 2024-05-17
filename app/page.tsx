@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 // Set Theme berdasarkan session storage
-export function setTheme() {
+export function SetTheme() {
   useEffect(() => {
     const savedTheme = sessionStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -16,7 +16,7 @@ export function setTheme() {
 }
 
 export default function Home() {
-  setTheme();
+  SetTheme();
 
   return (
     <>

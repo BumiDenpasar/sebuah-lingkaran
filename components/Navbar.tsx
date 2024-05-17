@@ -9,10 +9,10 @@ import Link from "next/link";
 import CopyLinkButton from "./CopyLinkButton";
 import DeleteButton from "./DeleteButton";
 import Tutorial from "./Tutorial";
-import { setTheme } from "@/app/page";
+import { SetTheme } from "@/app/page";
 
 export default function Navbar(props: any) {
-  setTheme();
+  SetTheme();
 
   // State modal dan tutorial
   const [isOpen, setOpen] = useState(false);
