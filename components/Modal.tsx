@@ -12,8 +12,8 @@ const Modal: React.FC<ModalProps> = ({ show, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0   bg-gray-600 bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white dark:bg-neutral-900 flex flex-col items-center justify-center px-7 py-5 text-lg rounded-2xl shadow-lg text-center">
+    <div className="fixed inset-0 h-screen flex justify-center items-center">
+      <div className="bg-white dark:bg-neutral-900 flex flex-col items-center justify-center px-10 py-5 text-lg rounded-2xl shadow-lg text-center">
         <div className='w-52 h-52 relative'>
             <Image  
                 src="/images/success.png"

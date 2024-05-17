@@ -4,20 +4,15 @@ import { IoMdSunny } from "react-icons/io"
 import { MdDarkMode } from "react-icons/md"
 
 export const ThemeToggle = () => {
-    const [darkMode, setDarkMode] = useState(false)
-
-    useEffect(() => {
-        const theme = localStorage.getItem("theme")
-        theme === "dark" ? setDarkMode(true) : setDarkMode(false)
-    }, [])
+    const [darkMode, setDarkMode] = useState(sessionStorage.getItem('theme') === "dark")
 
     useEffect(() => {
         if (darkMode) {
             document.documentElement.classList.add('dark')
-            localStorage.setItem('theme', 'dark')
+            sessionStorage.setItem('theme', 'dark')
         } else {
             document.documentElement.classList.remove('dark')
-            localStorage.setItem('theme', 'light')
+            sessionStorage.setItem('theme', 'light')
         }
     }, [darkMode])
 
