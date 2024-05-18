@@ -21,12 +21,12 @@ export default function Input() {
     const { data, error } = await supabase
       .from("group")
       .insert(formData)
-      .select("io");
+      .select("id");
     if (error) {
       const url = "error/" + error.message
       router.push(url);
     } else {
-      const url = "group/" + data[0].io;
+      const url = "group/" + data[0].id;
       localStorage.setItem("isAdmin", JSON.stringify(true));
       router.push(url);
     }
