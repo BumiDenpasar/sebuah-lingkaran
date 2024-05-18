@@ -29,7 +29,7 @@ export const ThemeToggle = () => {
           dark="slate"
           onclick={() => setDarkMode(!darkMode)}
         />
-      
+        <div className="bg-yellow-300 border-yellow-600"></div>
     </div>
   );
 };
