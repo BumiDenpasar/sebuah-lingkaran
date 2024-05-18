@@ -14,7 +14,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="flex justify-center items-center font-jakarta transition-colors duration-500 bg-purple-100 dark:bg-black">
+      <body className="flex justify-center items-center font-jakarta transition-colors duration-500 text-purple-600 dark:text-white bg-purple-100 dark:bg-black">
           {children}
       </body>
     </html>

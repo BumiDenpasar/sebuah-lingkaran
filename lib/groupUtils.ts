@@ -13,7 +13,6 @@ export async function checkGroupID(id: string): Promise<boolean> {
     .single();
 
   if (error) {
-    console.error(error);
     return false;
   }
 

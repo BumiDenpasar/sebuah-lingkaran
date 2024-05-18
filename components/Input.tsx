@@ -1,8 +1,9 @@
 "use client";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GrFormNextLink } from "react-icons/gr";
+import Loading from "./Loading";
 
 interface FormData {
   name: string;
@@ -14,16 +15,19 @@ export default function Input() {
     name: "",
   });
 
+  const [isLoading, setisLoading] = useState(false)
+
   async function submitData(formData: FormData) {
     const { data, error } = await supabase
       .from("group")
       .insert(formData)
-      .select("id");
+      .select("io");
     if (error) {
-      console.error("Error inserting data:", error);
+      const url = "error/" + error.message
+      router.push(url);
     } else {
-      console.log("Data inserted successfully:", data[0].id);
-      const url = "group/" + data[0].id;
+      const url = "group/" + data[0].io;
+      localStorage.setItem("isAdmin", JSON.stringify(true));
       router.push(url);
     }
   }
@@ -34,39 +38,44 @@ export default function Input() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setisLoading(true)
     await submitData(formData);
     setFormData({ name: "" });
-    localStorage.setItem("isAdmin", JSON.stringify(true));
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex items-center max-w-sm mx-auto mb-16"
-    >
-      <label htmlFor="name" className="sr-only">
-        Search
-      </label>
-      <div className="relative w-full">
-        <input
-          type="text"
-          className="bg-gray-50 border placeholder-purple-200 text-purple-500 font-semibold border-gray-300 rounded-full focus:ring-neutral-500 focus:border-neutral-500 block w-full ps-5 p-2.5 py-4 dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
-          placeholder="Buat nama sirkelmu..."
-          required
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </div>
-      <button
-        type="submit"
-        className="ms-2 flex items-center justify-center font-medium text-white bg-purple-700 rounded-full w-12 h-12 aspect-square"
-      >
-        <div className="scale-125">
-          <GrFormNextLink />
-        </div>
-      </button>
-    </form>
+    <>
+      {isLoading && <Loading />}
+      {!isLoading && (
+        <form
+          onSubmit={handleSubmit}
+          className="flex items-center max-w-sm mx-auto mb-16"
+        >
+          <label htmlFor="name" className="sr-only">
+            Search
+          </label>
+          <div className="relative w-full">
+            <input
+              type="text"
+              className="bg-gray-50 border placeholder-purple-200 text-purple-500 font-semibold border-gray-300 rounded-full focus:ring-neutral-500 focus:border-neutral-500 block w-full ps-5 p-2.5 py-4 dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
+              placeholder="Buat nama sirkelmu..."
+              required
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <button
+            type="submit"
+            className="ms-2 flex items-center justify-center font-medium text-white bg-purple-700 rounded-full w-12 h-12 aspect-square"
+          >
+            <div className="scale-125">
+              <GrFormNextLink />
+            </div>
+          </button>
+        </form>
+      )}
+    </>
   );
 }

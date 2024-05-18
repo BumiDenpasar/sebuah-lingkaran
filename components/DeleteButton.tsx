@@ -12,7 +12,8 @@ export default function DeleteButton(props: any) {
     const { error } = await supabase.from("group").delete().eq("id", id);
 
     if (error) {
-      console.error("Error deleting data:", error);
+      const url = "error/" + error.message
+      router.push(url);
     } else {
       router.push("/");
     }

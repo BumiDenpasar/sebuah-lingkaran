@@ -1,5 +1,6 @@
 "use client";
 import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { GrFormNextLink } from "react-icons/gr";
 
@@ -9,6 +10,7 @@ interface FormData {
 }
 
 export default function ChatInput(id: any) {
+  const router = useRouter()
   // form data
   const [formData, setFormData] = useState<FormData>({
     group_id: id.id,
@@ -24,9 +26,8 @@ export default function ChatInput(id: any) {
     const { data, error } = await supabase.from("chats").insert(formData);
     setIsSubmitting(false);
     if (error) {
-      console.error("Error inserting data:", error);
-    } else {
-      console.log("Data inserted successfully:", data);
+      const url = "error/" + error.message
+      router.push(url);
     }
   }
 
