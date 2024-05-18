@@ -51,7 +51,7 @@ export default function Input() {
         <input
           type="text"
           className="bg-gray-50 border placeholder-purple-200 text-purple-500 font-semibold border-gray-300 rounded-full focus:ring-neutral-500 focus:border-neutral-500 block w-full ps-5 p-2.5 py-4 dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-500 dark:focus:border-neutral-500"
-          placeholder="Buat password sirkelmu..."
+          placeholder="Buat nama sirkelmu..."
           required
           id="name"
           name="name"

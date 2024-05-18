@@ -3,10 +3,15 @@ import Join from "@/components/Join";
 import LogoLarge from "@/components/LogoLarge";
 import Transition from "@/components/Transition";
 import Watermark from "@/components/Watermark";
-import { SetTheme } from "../page";
+import { useEffect } from "react";
 
 export default function Page() {
-  SetTheme();
+  useEffect(() => {
+    const savedTheme = sessionStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
 
   return (
     <>

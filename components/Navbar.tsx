@@ -9,11 +9,14 @@ import Link from "next/link";
 import CopyLinkButton from "./CopyLinkButton";
 import DeleteButton from "./DeleteButton";
 import Tutorial from "./Tutorial";
-import { SetTheme } from "@/app/page";
 
 export default function Navbar(props: any) {
-  SetTheme();
-
+  useEffect(() => {
+    const savedTheme = sessionStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
   // State modal dan tutorial
   const [isOpen, setOpen] = useState(false);
   const [showTutorial, setShowTutorial] = useState(false);

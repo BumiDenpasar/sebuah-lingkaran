@@ -5,19 +5,13 @@ import Watermark from "@/components/Watermark";
 import Link from "next/link";
 import { useEffect } from "react";
 
-// Set Theme berdasarkan session storage
-export function SetTheme() {
+export default function Home() {
   useEffect(() => {
     const savedTheme = sessionStorage.getItem("theme");
     if (savedTheme === "dark") {
       document.documentElement.classList.add("dark");
     }
   }, []);
-}
-
-export default function Home() {
-  SetTheme();
-
   return (
     <>
       <Transition>
