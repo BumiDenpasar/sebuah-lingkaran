@@ -7,7 +7,6 @@ import { ThemeToggle } from "./ThemeToggle";
 import { BiArrowBack } from "react-icons/bi";
 import Link from "next/link";
 import CopyLinkButton from "./CopyLinkButton";
-import DeleteButton from "./DeleteButton";
 import Tutorial from "./Tutorial";
 
 export default function Navbar(props: any) {
@@ -126,9 +125,6 @@ export default function Navbar(props: any) {
               <div className="space-y-2 w-full px-7">
                 <CopyLinkButton />
                 <ThemeToggle />
-                {localStorage.getItem("isAdmin") ? (
-                  <DeleteButton id={props.group_id} />
-                ) : null}
               </div>
             </motion.div>
           </motion.div>
