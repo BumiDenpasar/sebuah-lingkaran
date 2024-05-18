@@ -6,14 +6,9 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ show, onClose }) => {
-  let isLoading = true;
-  if (!show && isLoading) {
+  if (!show) {
     return null;
   }
-
-  const handleImageLoad = () => {
-    isLoading = false;
-  };
 
 
   return (
@@ -25,7 +20,7 @@ const Modal: React.FC<ModalProps> = ({ show, onClose }) => {
             alt="success"
             layout="fill"
             objectFit="cover"
-            onLoad={handleImageLoad} 
+            priority
             />
         </div>
         <p className="text-lg">URL telah disalin ke clipboard!</p>
