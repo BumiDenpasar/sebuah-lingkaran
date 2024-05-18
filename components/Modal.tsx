@@ -6,20 +6,27 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ show, onClose }) => {
-  if (!show) {
+  let isLoading = true;
+  if (!show && isLoading) {
     return null;
   }
 
+  const handleImageLoad = () => {
+    isLoading = false;
+  };
+
+
   return (
-    <div className="fixed inset-0 h-screen flex justify-center items-center">
+    <div className="fixed z-50 inset-0 h-screen flex justify-center items-center">
       <div className="bg-white dark:bg-neutral-900 flex flex-col items-center justify-center px-10 py-5 text-lg rounded-2xl shadow-lg text-center">
         <div className="w-52 h-52 relative">
           <Image
-            src="/images/success.png"
+            src="/images/success.webp"
             alt="success"
             layout="fill"
             objectFit="cover"
-          />
+            onLoad={handleImageLoad} 
+            />
         </div>
         <p className="text-lg">URL telah disalin ke clipboard!</p>
         <button

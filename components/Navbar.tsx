@@ -106,7 +106,7 @@ export default function Navbar(props: any) {
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="flex flex-col items-center justify-center py-5 min-w-80 h-60 bg-white dark:bg-neutral-900 rounded-xl shadow-lg"
+              className="flex flex-col items-center justify-center pt-5 pb-8 min-w-80 h-max bg-white dark:bg-neutral-900 rounded-xl shadow-lg"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}

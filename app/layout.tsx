@@ -14,7 +14,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="flex transition-all duration-500 justify-center items-center font-jakarta bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100  dark:from-black dark:via-black dark:to-black text-black dark:text-white  ">
+      <body className="flex justify-center items-center font-jakarta transition-colors duration-500 bg-purple-100 dark:bg-black">
           {children}
       </body>
     </html>

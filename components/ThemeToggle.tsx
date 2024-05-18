@@ -20,12 +20,16 @@ export const ThemeToggle = () => {
   }, [darkMode]);
 
   return (
-    <Button
-        name={darkMode ? "Dark Mode" : "Light Mode"}
-        icon={darkMode ? <MdDarkMode /> : <IoMdSunny />}
-        color="yellow"
-        dark="slate"
-        onclick={() => setDarkMode(!darkMode)}
-      />
+    <div>
+      <Button
+          name={darkMode ? "Dark Mode" : "Light Mode"}
+          type="toggle"
+          icon={darkMode ? <MdDarkMode /> : <IoMdSunny />}
+          color="yellow"
+          dark="slate"
+          onclick={() => setDarkMode(!darkMode)}
+        />
+      
+    </div>
   );
 };

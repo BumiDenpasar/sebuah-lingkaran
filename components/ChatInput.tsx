@@ -43,7 +43,7 @@ export default function ChatInput(id: any) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-screen items-center justify-center fixed bottom-[-1px] px-8 pb-7 pt-10 left-0 bg-gradient-to-t from-purple-100 via-purple-100 to-purple-100/0 dark:from-black dark:via-black dark:to-black/0"
+      className="flex w-screen transition-colors duration-500 items-center justify-center fixed bottom-[-1px] px-8 pb-7 pt-10 left-0 bg-gradient-to-t from-purple-100 via-purple-100 to-purple-100/0 dark:from-black dark:via-black dark:to-black/0"
     >
       <div className="max-w-xl w-full flex items-center justify-center">
         <div className="relative w-full">
