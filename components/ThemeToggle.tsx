@@ -26,10 +26,9 @@ export const ThemeToggle = () => {
           type="toggle"
           icon={darkMode ? <MdDarkMode /> : <IoMdSunny />}
           color="yellow"
-          dark="slate"
           onclick={() => setDarkMode(!darkMode)}
         />
-        <div className="bg-yellow-300 border-yellow-600"></div>
+       
     </div>
   );
 };
