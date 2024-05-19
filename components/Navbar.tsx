@@ -9,7 +9,7 @@ import Link from "next/link";
 import CopyLinkButton from "./CopyLinkButton";
 import Tutorial from "./Tutorial";
 
-export default function Navbar(props: any) {
+export default function Navbar(props : any) {
   useEffect(() => {
     const savedTheme = sessionStorage.getItem("theme");
     if (savedTheme === "dark") {
@@ -51,7 +51,7 @@ export default function Navbar(props: any) {
             <h5 className="tracking-wide font-lg font-semibold">
               {props.name}
             </h5>
-            <h5 className="text-sm tracking-wide">id : {props.group_id}</h5>
+            <h5 className="text-sm tracking-wide">Kode : {props.group_id}</h5>
             <AnimatePresence>
               {showTutorial2 && (
                 <motion.div
