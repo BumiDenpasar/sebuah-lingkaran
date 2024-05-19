@@ -64,7 +64,7 @@ export default function Navbar(props : any) {
                   <Tutorial
                     show={showTutorial2}
                     onClose={() => setShowTutorial2(false)}
-                    message="Cek id sirkel kalian disini. Kamu bisa share id ini untuk teman-teman kamu bisa join sirkel kamu!"
+                    message="Cek kode sirkel kalian disini. Kamu bisa share kode ini untuk teman-teman kamu bisa join sirkel kamu!"
                   />
                 </motion.div>
               )}
